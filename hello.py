@@ -3,12 +3,12 @@ from dotenv import load_dotenv
 import os
 
 # .envファイルを読み込む
-load_dotenv()
+load_dotenv(override=True)
 
 # Dify APIのAPIキー
 API_KEY = os.getenv("API_KEY")
 # Dify APIのベースURL
-BASE_URL = "https://api.dify.ai/v1/chat-messages"
+BASE_URL = os.getenv("DIFY_URL") + "/chat-messages"
 
 
 def get_dify_response(message: str, user_id: str):
